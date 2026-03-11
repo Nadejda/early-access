@@ -104,8 +104,8 @@ function App() {
     details.fullName.trim() && details.businessName.trim() && details.email.trim()
 
   return (
-    <main className="min-h-screen bg-[#03134D] px-4 py-6 text-white sm:grid sm:place-items-center">
-      <div className="relative mx-auto w-full max-w-[390px] overflow-hidden rounded-[32px] border border-white/12 bg-[#081E65] shadow-[0_28px_80px_rgba(1,7,32,0.65)]">
+    <main className="min-h-screen bg-[#061A67] px-0 py-0 text-white sm:grid sm:place-items-center sm:px-4 sm:py-6">
+      <div className="relative mx-auto h-screen w-full max-w-[390px] overflow-hidden bg-[#081E65] shadow-[0_28px_80px_rgba(1,7,32,0.65)] sm:h-[812px] sm:rounded-[28px] sm:border sm:border-white/12">
         <GlowDecor />
 
         {step !== 'landing' && (
@@ -118,7 +118,7 @@ function App() {
             >
               ←
             </button>
-            <p className="text-xs font-medium tracking-[0.2em] text-white/70">EARLY ACCESS</p>
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-white/75">EARLY ACCESS</p>
             <div className="w-10" />
           </header>
         )}
@@ -196,11 +196,14 @@ function GlowDecor() {
 
 function LandingScreen({ onNext }) {
   return (
-    <div className="flex min-h-[690px] flex-col items-start justify-between py-4">
+    <div className="flex min-h-[744px] flex-col items-start justify-between py-4">
       <div className="w-full">
         <span className="rounded-full border border-[#66D3FF]/30 bg-[#66D3FF]/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#66D3FF]">
           Early access
         </span>
+        <div className="mt-5 h-[168px] w-full rounded-3xl border border-white/12 bg-[linear-gradient(145deg,#1D4ED81A_10%,#1D4ED866_65%,#0EA5E91A_100%)] p-4">
+          <div className="h-full w-full rounded-2xl border border-[#79D2FF]/20 bg-[radial-gradient(circle_at_75%_15%,rgba(121,210,255,0.4),transparent_35%),radial-gradient(circle_at_20%_80%,rgba(14,165,233,0.2),transparent_40%)]" />
+        </div>
         <h1 className="mt-5 text-[36px] font-semibold leading-[1.1]">
           Build your business
           <br />
@@ -233,7 +236,7 @@ function LandingScreen({ onNext }) {
       <button
         type="button"
         onClick={onNext}
-        className="mt-8 w-full rounded-2xl bg-[#0AA5FF] px-5 py-4 text-center text-[15px] font-semibold text-[#001B5A] transition hover:bg-[#30B1FF]"
+        className="mt-8 h-14 w-full rounded-2xl bg-[#0AA5FF] px-5 text-center text-[15px] font-semibold text-[#001B5A] transition hover:bg-[#30B1FF]"
       >
         Join early access
       </button>
@@ -243,7 +246,7 @@ function LandingScreen({ onNext }) {
 
 function PhoneScreen({ phone, setPhone, onNext, canContinue }) {
   return (
-    <div className="flex min-h-[640px] flex-col justify-between">
+    <div className="flex min-h-[700px] flex-col justify-between">
       <div>
         <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#6AB8FF]">Phone number</p>
         <h2 className="mt-3 text-[30px] font-semibold leading-[1.15]">What number should we text?</h2>
@@ -251,7 +254,7 @@ function PhoneScreen({ phone, setPhone, onNext, canContinue }) {
           We will send a one-time verification code to continue your sign-up.
         </p>
 
-        <label className="mt-8 block text-xs font-medium uppercase tracking-[0.13em] text-white/55">
+        <label className="mt-8 block text-[11px] font-semibold uppercase tracking-[0.14em] text-white/60">
           Mobile number
         </label>
         <div className="mt-2 flex items-center rounded-2xl border border-white/15 bg-white/8 px-3">
@@ -270,7 +273,7 @@ function PhoneScreen({ phone, setPhone, onNext, canContinue }) {
         type="button"
         onClick={onNext}
         disabled={!canContinue}
-        className="mt-8 w-full rounded-2xl bg-[#0AA5FF] px-5 py-4 text-[15px] font-semibold text-[#001B5A] transition enabled:hover:bg-[#30B1FF] disabled:cursor-not-allowed disabled:bg-white/15 disabled:text-white/45"
+        className="mt-8 h-14 w-full rounded-2xl bg-[#0AA5FF] px-5 text-[15px] font-semibold text-[#001B5A] transition enabled:hover:bg-[#30B1FF] disabled:cursor-not-allowed disabled:bg-white/15 disabled:text-white/45"
       >
         Continue
       </button>
@@ -280,7 +283,7 @@ function PhoneScreen({ phone, setPhone, onNext, canContinue }) {
 
 function SmsScreen({ phone, otp, onChange, onKeyDown, inputRefs, onNext, canContinue }) {
   return (
-    <div className="flex min-h-[640px] flex-col justify-between">
+    <div className="flex min-h-[700px] flex-col justify-between">
       <div>
         <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#6AB8FF]">Code from SMS</p>
         <h2 className="mt-3 text-[30px] font-semibold leading-[1.15]">Enter your 4-digit code</h2>
@@ -317,7 +320,7 @@ function SmsScreen({ phone, otp, onChange, onKeyDown, inputRefs, onNext, canCont
         type="button"
         onClick={onNext}
         disabled={!canContinue}
-        className="mt-8 w-full rounded-2xl bg-[#0AA5FF] px-5 py-4 text-[15px] font-semibold text-[#001B5A] transition enabled:hover:bg-[#30B1FF] disabled:cursor-not-allowed disabled:bg-white/15 disabled:text-white/45"
+        className="mt-8 h-14 w-full rounded-2xl bg-[#0AA5FF] px-5 text-[15px] font-semibold text-[#001B5A] transition enabled:hover:bg-[#30B1FF] disabled:cursor-not-allowed disabled:bg-white/15 disabled:text-white/45"
       >
         Verify code
       </button>
@@ -331,7 +334,7 @@ function DetailsScreen({ values, onChange, onNext, canContinue }) {
   }
 
   return (
-    <div className="flex min-h-[640px] flex-col justify-between">
+    <div className="flex min-h-[700px] flex-col justify-between">
       <div>
         <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#6AB8FF]">A few more details</p>
         <h2 className="mt-3 text-[30px] font-semibold leading-[1.15]">Tell us about you</h2>
@@ -366,7 +369,7 @@ function DetailsScreen({ values, onChange, onNext, canContinue }) {
         type="button"
         onClick={onNext}
         disabled={!canContinue}
-        className="mt-8 w-full rounded-2xl bg-[#0AA5FF] px-5 py-4 text-[15px] font-semibold text-[#001B5A] transition enabled:hover:bg-[#30B1FF] disabled:cursor-not-allowed disabled:bg-white/15 disabled:text-white/45"
+        className="mt-8 h-14 w-full rounded-2xl bg-[#0AA5FF] px-5 text-[15px] font-semibold text-[#001B5A] transition enabled:hover:bg-[#30B1FF] disabled:cursor-not-allowed disabled:bg-white/15 disabled:text-white/45"
       >
         Continue
       </button>
@@ -376,7 +379,7 @@ function DetailsScreen({ values, onChange, onNext, canContinue }) {
 
 function ReferralScreen({ referralCode, setReferralCode, source, setSource, onNext }) {
   return (
-    <div className="flex min-h-[640px] flex-col justify-between">
+    <div className="flex min-h-[700px] flex-col justify-between">
       <div>
         <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#6AB8FF]">Referral</p>
         <h2 className="mt-3 text-[30px] font-semibold leading-[1.15]">Have a referral?</h2>
@@ -412,14 +415,14 @@ function ReferralScreen({ referralCode, setReferralCode, source, setSource, onNe
         <button
           type="button"
           onClick={onNext}
-          className="w-full rounded-2xl border border-white/20 bg-transparent px-5 py-4 text-[15px] font-semibold text-white/85 transition hover:bg-white/8"
+          className="h-14 w-full rounded-2xl border border-white/20 bg-transparent px-5 text-[15px] font-semibold text-white/85 transition hover:bg-white/8"
         >
           Skip
         </button>
         <button
           type="button"
           onClick={onNext}
-          className="w-full rounded-2xl bg-[#0AA5FF] px-5 py-4 text-[15px] font-semibold text-[#001B5A] transition hover:bg-[#30B1FF]"
+          className="h-14 w-full rounded-2xl bg-[#0AA5FF] px-5 text-[15px] font-semibold text-[#001B5A] transition hover:bg-[#30B1FF]"
         >
           Finish sign up
         </button>
@@ -430,7 +433,7 @@ function ReferralScreen({ referralCode, setReferralCode, source, setSource, onNe
 
 function SuccessScreen() {
   return (
-    <div className="flex min-h-[690px] flex-col items-center justify-center py-6 text-center">
+    <div className="flex min-h-[744px] flex-col items-center justify-center py-6 text-center">
       <div className="grid h-24 w-24 place-items-center rounded-full border border-[#7CD5FF]/40 bg-[#0AA5FF]/20">
         <span className="text-5xl text-[#7CD5FF]">✓</span>
       </div>
@@ -441,7 +444,7 @@ function SuccessScreen() {
       </p>
       <button
         type="button"
-        className="mt-10 w-full rounded-2xl bg-[#0AA5FF] px-5 py-4 text-[15px] font-semibold text-[#001B5A] transition hover:bg-[#30B1FF]"
+        className="mt-10 h-14 w-full rounded-2xl bg-[#0AA5FF] px-5 text-[15px] font-semibold text-[#001B5A] transition hover:bg-[#30B1FF]"
       >
         Go to dashboard
       </button>
