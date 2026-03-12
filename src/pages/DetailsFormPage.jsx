@@ -6,7 +6,7 @@ function DetailsFormPage({ values, onChange, onNext, canContinue }) {
   const updateField = (key, value) => onChange({ ...values, [key]: value })
 
   return (
-    <div className="flex min-h-[700px] flex-col justify-between">
+    <div className="flex min-h-flow-form flex-col justify-between">
       <div>
         <PageIntro
           eyebrow="A few more details"

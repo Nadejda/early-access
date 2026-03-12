@@ -11,7 +11,7 @@ function ReferralPage({
   onNext,
 }) {
   return (
-    <div className="flex min-h-[700px] flex-col justify-between">
+    <div className="flex min-h-flow-form flex-col justify-between">
       <div>
         <PageIntro
           eyebrow="Referral"
@@ -26,15 +26,15 @@ function ReferralPage({
             value={referralCode}
             onChange={(event) => onReferralCodeChange(event.target.value)}
           />
-          <label className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-white/60">
+          <label className="block text-control-label uppercase tracking-label text-white/60">
             How did you hear about us?
             <select
               value={source}
               onChange={(event) => onSourceChange(event.target.value)}
-              className="mt-2 h-14 w-full rounded-2xl border border-white/15 bg-white/8 px-4 text-[15px] text-white outline-none transition focus:border-[#4DBFFF] focus:bg-[#102C80]"
+              className="mt-2 h-14 w-full rounded-2xl border border-white/15 bg-white/8 px-4 text-body text-white outline-none transition focus:border-ea-focus focus:bg-ea-focus-bg"
             >
               {options.map((option) => (
-                <option key={option} value={option} className="bg-[#0F2A7A]">
+                <option key={option} value={option} className="bg-ea-select-bg">
                   {option}
                 </option>
               ))}
