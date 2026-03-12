@@ -1,0 +1,66 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'ea-canvas': '#061A67',
+        'ea-shell': '#081E65',
+        'ea-shell-2': '#0A237F',
+        'ea-panel': '#04133F',
+        'ea-panel-2': '#08194D',
+        'ea-input': '#4A5678',
+        'ea-muted': '#8EA2D0',
+        'ea-divider': '#2A3D73',
+        'ea-primary': '#0AA5FF',
+        'ea-primary-hover': '#30B1FF',
+        'ea-primary-ink': '#001B5A',
+        'ea-progress': '#00A3FF',
+        'ea-accent': '#61CAFF',
+        'ea-accent-soft': '#66D3FF',
+        'ea-accent-eyebrow': '#6AB8FF',
+        'ea-focus': '#4DBFFF',
+        'ea-focus-bg': '#102C80',
+        'ea-select-bg': '#0F2A7A',
+        'ea-glow-top': '#1B6AFF',
+        'ea-glow-bottom': '#0E95FF',
+        'ea-check': '#7CD5FF',
+      },
+      fontFamily: {
+        sans: ['Inter', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+      },
+      fontSize: {
+        'display-hero': ['36px', { lineHeight: '1.1', fontWeight: '600' }],
+        'display-page': ['30px', { lineHeight: '1.15', fontWeight: '600' }],
+        'display-success': ['34px', { lineHeight: '1.1', fontWeight: '600' }],
+        'panel-title': ['36px', { lineHeight: '1.1', fontWeight: '600' }],
+        'panel-h2': ['33px', { lineHeight: '1.1', fontWeight: '600' }],
+        'panel-h3': ['16px', { lineHeight: '1.2', fontWeight: '600' }],
+        caption: ['11px', { lineHeight: '1.2' }],
+        body: ['15px', { lineHeight: '24px' }],
+        'control-label': ['11px', { lineHeight: '1.2', fontWeight: '600' }],
+        button: ['15px', { lineHeight: '1.2', fontWeight: '600' }],
+      },
+      letterSpacing: {
+        eyebrow: '0.18em',
+        label: '0.14em',
+      },
+      spacing: {
+        shell: '390px',
+        'screen-mobile': '760px',
+        'flow-main': '700px',
+        'flow-form': '700px',
+        hero: '168px',
+        'content-max': '295px',
+        'content-max-sm': '290px',
+      },
+      borderRadius: {
+        frame: '28px',
+        panel: '12px',
+      },
+      boxShadow: {
+        shell: '0 28px 80px rgba(1, 7, 32, 0.65)',
+      },
+    },
+  },
+}
