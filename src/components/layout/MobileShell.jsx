@@ -1,16 +1,16 @@
 function GlowDecor() {
   return (
     <>
-      <div className="pointer-events-none absolute left-[-120px] top-[-100px] h-64 w-64 rounded-full bg-ea-glow-top/20 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-[-120px] right-[-100px] h-72 w-72 rounded-full bg-ea-glow-bottom/15 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-110px] top-[-120px] h-56 w-56 rounded-full bg-ea-glow-top/15 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-[-100px] right-[-90px] h-56 w-56 rounded-full bg-ea-glow-bottom/10 blur-3xl" />
     </>
   )
 }
 
 function MobileShell({ showHeader, progress, totalSteps, onBack, children }) {
   return (
-    <main className="min-h-screen bg-ea-canvas px-0 py-0 text-white sm:grid sm:place-items-center sm:px-4 sm:py-6">
-      <div className="relative mx-auto h-screen w-full max-w-shell overflow-hidden bg-ea-shell-2 shadow-shell sm:h-screen-mobile sm:rounded-[8px] sm:border sm:border-white/10">
+    <main className="min-h-screen bg-[#091f78] px-0 py-0 text-white sm:grid sm:place-items-center sm:px-4 sm:py-6">
+      <div className="relative mx-auto w-full max-w-[421px] overflow-hidden bg-[#11298a] shadow-shell sm:rounded-[6px] sm:border sm:border-white/10">
         <GlowDecor />
 
         {showHeader && (
@@ -39,7 +39,7 @@ function MobileShell({ showHeader, progress, totalSteps, onBack, children }) {
           </div>
         )}
 
-        <section className="relative z-10 px-4 pb-6 pt-4">{children}</section>
+        <section className="relative z-10 px-3 pb-4 pt-3">{children}</section>
       </div>
     </main>
   )

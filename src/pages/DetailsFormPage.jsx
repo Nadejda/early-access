@@ -6,15 +6,15 @@ function DetailsFormPage({ values, onChange, onNext, canContinue }) {
   const updateField = (key, value) => onChange({ ...values, [key]: value })
 
   return (
-    <div className="flex min-h-flow-form flex-col">
-      <BrandHeader rightIsClose />
+    <div className="flex min-h-[420px] flex-col">
+      <BrandHeader rightIsClose className="px-4" />
 
-      <DarkPanel className="mt-4">
-        <h2 className="text-panel-h2">A few more details</h2>
-        <p className="mt-1 text-caption text-white/70">For pre-approved and personalised offers</p>
-        <div className="mt-3 border-t border-ea-divider" />
+      <DarkPanel className="mx-auto mt-2 w-[178px]">
+        <h2 className="text-[12px] font-semibold leading-none">A few more details</h2>
+        <p className="mt-1 text-[4.5px] text-white/70">For pre-approved and personalised offers</p>
+        <div className="mt-2 border-t border-white/20" />
 
-        <div className="mt-3 space-y-2">
+        <div className="mt-2 space-y-2">
           <Field
             label="Full name as on your BVN"
             value={values.fullName}
@@ -31,9 +31,9 @@ function DetailsFormPage({ values, onChange, onNext, canContinue }) {
             onChange={(event) => updateField('businessName', event.target.value)}
           />
           <Field label="RC number if public" />
-          <label className="mt-1 flex items-start gap-2 text-[8px] text-white/65">
-            <input type="checkbox" className="mt-[2px] h-2.5 w-2.5 rounded border-white/40 bg-transparent" />
-            <span>NCB will help you get a loan at discounted rates.</span>
+          <label className="mt-1 flex items-start gap-1.5 text-[4px] leading-[1.25] text-white/65">
+            <input type="checkbox" className="mt-[1px] h-1.5 w-1.5 rounded border-white/40 bg-transparent" />
+            <span>NCB will help you get one — just one issue to get access point.</span>
           </label>
         </div>
 
@@ -41,13 +41,13 @@ function DetailsFormPage({ values, onChange, onNext, canContinue }) {
           type="button"
           onClick={onNext}
           disabled={!canContinue}
-          className="mt-3 h-7 w-full rounded-full bg-white text-[10px] font-semibold text-ea-primary-ink disabled:opacity-45"
+          className="mt-2 h-5 w-full rounded-full bg-white text-[5.5px] font-semibold text-ea-primary-ink disabled:opacity-45"
         >
           Save
         </button>
       </DarkPanel>
 
-      <ContactBlock className="mt-auto pt-3" />
+      <ContactBlock className="mx-auto mt-auto w-[178px] pb-3 pt-3" />
     </div>
   )
 }
@@ -55,10 +55,10 @@ function DetailsFormPage({ values, onChange, onNext, canContinue }) {
 function Field({ label, ...props }) {
   return (
     <label className="block">
-      <span className="text-[8px] text-white/75">{label}</span>
+      <span className="text-[4.5px] text-white/75">{label}</span>
       <input
         {...props}
-        className="mt-1 h-7 w-full rounded-[8px] bg-ea-input px-2 text-[10px] text-white outline-none"
+        className="mt-1 h-4 w-full rounded-[3px] bg-[#4a5678] px-1.5 text-[5.5px] text-white outline-none"
       />
     </label>
   )

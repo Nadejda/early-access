@@ -4,15 +4,15 @@ import DarkPanel from '../components/ui/DarkPanel'
 
 function SmsCodePage({ phone, otp, onOtpChange, onOtpKeyDown, inputRefs, onNext, canContinue }) {
   return (
-    <div className="flex min-h-flow-form flex-col">
-      <BrandHeader rightLabel="Log in" />
+    <div className="flex min-h-[420px] flex-col">
+      <BrandHeader rightLabel="Log in" className="px-4" />
 
-      <DarkPanel className="mt-5">
-        <h2 className="text-panel-h2">Code from SMS</h2>
-        <p className="mt-1 text-caption text-white/70">We sent it to {phone || '+234...000'}</p>
-        <div className="mt-3 border-t border-ea-divider" />
+      <DarkPanel className="mx-auto mt-4 w-[178px]">
+        <h2 className="text-[13px] font-semibold leading-none text-white">Code from SMS</h2>
+        <p className="mt-1 text-[5.5px] text-white/70">We sent it to {phone || '+234...000'}</p>
+        <div className="mt-2 border-t border-white/20" />
 
-        <div className="mt-3 grid grid-cols-6 gap-2">
+        <div className="mt-2 grid grid-cols-6 gap-1.5">
           {otp.map((digit, index) => (
             <input
               key={index}
@@ -24,12 +24,12 @@ function SmsCodePage({ phone, otp, onOtpChange, onOtpKeyDown, inputRefs, onNext,
               onKeyDown={(event) => onOtpKeyDown(event, index)}
               inputMode="numeric"
               maxLength={1}
-              className="h-6 rounded-[6px] bg-ea-input text-center text-[11px] font-semibold text-white outline-none"
+              className="h-4 rounded-[3px] bg-[#4a5678] text-center text-[6.5px] font-semibold text-white outline-none"
             />
           ))}
         </div>
-        <p className="mt-2 text-[8px] text-white/60">Get a new code in 32 sec</p>
-        <button type="button" className="mt-1 text-[8px] underline text-white/80">
+        <p className="mt-2 text-[4.5px] text-white/60">Get a new code in 32 sec</p>
+        <button type="button" className="mt-1 text-[4.5px] underline text-white/80">
           Edit phone number
         </button>
 
@@ -37,13 +37,13 @@ function SmsCodePage({ phone, otp, onOtpChange, onOtpKeyDown, inputRefs, onNext,
           type="button"
           onClick={onNext}
           disabled={!canContinue}
-          className="mt-3 h-7 w-full rounded-full bg-white text-[10px] font-semibold text-ea-primary-ink disabled:opacity-45"
+          className="mt-2 h-5 w-full rounded-full bg-white text-[5.5px] font-semibold text-ea-primary-ink disabled:opacity-45"
         >
           Next
         </button>
       </DarkPanel>
 
-      <ContactBlock className="mt-auto pt-3" />
+      <ContactBlock className="mx-auto mt-auto w-[178px] pb-3 pt-3" />
     </div>
   )
 }
