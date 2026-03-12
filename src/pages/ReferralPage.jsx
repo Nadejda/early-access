@@ -1,56 +1,47 @@
-import ActionButton from '../components/ui/ActionButton'
-import FormInput from '../components/ui/FormInput'
-import PageIntro from '../components/ui/PageIntro'
+import BrandHeader from '../components/ui/BrandHeader'
+import ContactBlock from '../components/ui/ContactBlock'
+import DarkPanel from '../components/ui/DarkPanel'
 
-function ReferralPage({
-  options,
-  referralCode,
-  onReferralCodeChange,
-  source,
-  onSourceChange,
-  onNext,
-}) {
+function ReferralPage({ referralCode, onReferralCodeChange, onNext }) {
   return (
-    <div className="flex min-h-flow-form flex-col justify-between">
-      <div>
-        <PageIntro
-          eyebrow="Referral"
-          title="Have a referral?"
-          description="Referral details are optional, but they can unlock priority access and launch rewards."
+    <div className="flex min-h-flow-form flex-col">
+      <BrandHeader rightIsClose />
+
+      <DarkPanel className="mt-4">
+        <h2 className="text-panel-h2">Invite 2 businesses from your network</h2>
+        <p className="mt-1 text-caption text-white/70">After they join, you&apos;ll both get early access and bonuses</p>
+        <div className="mt-3 border-t border-ea-divider" />
+
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <StatCard label="Joined" value="0 of 2" />
+          <StatCard label="Pending" value="0" />
+        </div>
+
+        <input
+          value={referralCode}
+          onChange={(event) => onReferralCodeChange(event.target.value)}
+          className="mt-2 h-7 w-full rounded-[8px] bg-ea-input px-2 text-[10px] text-white outline-none"
         />
 
-        <div className="mt-7 space-y-4">
-          <FormInput
-            label="Referral code (optional)"
-            placeholder="EARLY-ACCESS-2026"
-            value={referralCode}
-            onChange={(event) => onReferralCodeChange(event.target.value)}
-          />
-          <label className="block text-control-label uppercase tracking-label text-white/60">
-            How did you hear about us?
-            <select
-              value={source}
-              onChange={(event) => onSourceChange(event.target.value)}
-              className="mt-2 h-14 w-full rounded-2xl border border-white/15 bg-white/8 px-4 text-body text-white outline-none transition focus:border-ea-focus focus:bg-ea-focus-bg"
-            >
-              {options.map((option) => (
-                <option key={option} value={option} className="bg-ea-select-bg">
-                  {option}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-      </div>
+        <button
+          type="button"
+          onClick={onNext}
+          className="mt-3 h-7 w-full rounded-full bg-white text-[10px] font-semibold text-ea-primary-ink"
+        >
+          Copy
+        </button>
+      </DarkPanel>
 
-      <div className="mt-8 space-y-3">
-        <ActionButton type="button" variant="secondary" onClick={onNext}>
-          Skip
-        </ActionButton>
-        <ActionButton type="button" onClick={onNext}>
-          Finish sign up
-        </ActionButton>
-      </div>
+      <ContactBlock className="mt-auto pt-3" />
+    </div>
+  )
+}
+
+function StatCard({ label, value }) {
+  return (
+    <div className="rounded-[8px] bg-ea-input p-2">
+      <p className="text-[11px] font-semibold">{value}</p>
+      <p className="text-[8px] text-white/70">{label}</p>
     </div>
   )
 }

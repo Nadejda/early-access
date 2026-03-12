@@ -8,15 +8,13 @@ import SmsCodePage from './pages/SmsCodePage'
 import SuccessPage from './pages/SuccessPage'
 
 const FLOW_STEPS = ['phone', 'sms', 'details', 'referral', 'success']
-const SOURCE_OPTIONS = ['Instagram', 'X / Twitter', 'YouTube', 'Friend or colleague', 'Search engine', 'Other']
 
 function App() {
   const [step, setStep] = useState('landing')
   const [phone, setPhone] = useState('')
-  const [otp, setOtp] = useState(['', '', '', ''])
+  const [otp, setOtp] = useState(['', '', '', '', '', ''])
   const [details, setDetails] = useState({ fullName: '', businessName: '', email: '' })
   const [referralCode, setReferralCode] = useState('')
-  const [source, setSource] = useState(SOURCE_OPTIONS[0])
   const otpRefs = useRef([])
 
   const progress = useMemo(() => {
@@ -47,7 +45,7 @@ function App() {
     const nextOtp = [...otp]
     nextOtp[index] = cleaned
     setOtp(nextOtp)
-    if (cleaned && index < 3) otpRefs.current[index + 1]?.focus()
+    if (cleaned && index < otp.length - 1) otpRefs.current[index + 1]?.focus()
   }
 
   const handleOtpKeyDown = (event, index) => {
@@ -96,11 +94,8 @@ function App() {
     if (step === 'referral') {
       return (
         <ReferralPage
-          options={SOURCE_OPTIONS}
           referralCode={referralCode}
           onReferralCodeChange={setReferralCode}
-          source={source}
-          onSourceChange={setSource}
           onNext={goToNext}
         />
       )
@@ -110,7 +105,7 @@ function App() {
 
   return (
     <MobileShell
-      showHeader={step !== 'landing'}
+      showHeader={false}
       progress={progress}
       totalSteps={FLOW_STEPS.length}
       onBack={goBack}
